@@ -1,22 +1,35 @@
-# SVG Live Viewer
+# SVG Live Viewer Wiki
 
-Desktop SVG inspection tool for local project folders.
+SVG Live Viewer is a desktop tool for inspecting SVG files inside a selected project directory.
 
-## Repo-native behavior
+## Quick Start
 
-- App-level config lives beside the script in `config.json`
-- Recent project directories are stored in app config
-- Project-level state lives in `<ProjectDir>/svg_live_viewer.json`
-- The most recent project auto-loads on startup when available
-- The selected SVG is stored relative to the project directory
+```bash
+python setup.py --venv
+python svg_live_viewer.py
+```
 
-## Folder contents
+Manual install:
 
-- `svg_live_viewer.py`: main app entrypoint
-- `requirements.txt`: runtime dependency list
-- `setup.py`: local dependency bootstrapper
-- `config.json`: app-level state, including recent projects
+```bash
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install -r requirements.txt
+python svg_live_viewer.py
+```
 
-## Project behavior
+On Linux or macOS, use `source .venv/bin/activate`.
 
-Select a project directory first. The app scans that folder recursively for `.svg` files, lets you choose which SVG to watch, and persists view/render settings into the project config file.
+## Project Workflow
+
+1. Select a project directory.
+2. Choose an SVG discovered under that directory.
+3. Inspect the render and adjust view settings.
+
+## State Files
+
+- App config: `config.json` beside `svg_live_viewer.py`
+- Project config: `svg_live_viewer.json` in the selected project directory
+- Log file: `svg_live_viewer.log`
+
+These files are runtime state and are ignored by Git.
